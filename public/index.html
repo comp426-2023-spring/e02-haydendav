@@ -1,12 +1,74 @@
-<html>
+<html lang="en">
     <head>
-        <title>Rock</title>
+        <title>Rock, Paper, Scissors</title>
         <!-- Link to your script file(s) and CSS in here somewhere -->
+        <link href="./styles.css" rel="stylesheet">
+		<script src="./scripts.js"></script>
     </head>
-    <body>
+    <body class="body" onload="onLoad()">
 
-    <!-- Your interface markup goes here -->
-    <!-- For interface examples, look in the `/examples/` directory in the root of your starter code repo. -->
+        <h2>Select Game type:</h2>
+        <input class="radio" type="radio" id="rps" value="rps" name="game" checked onclick="rps()">
+        <label for="rps">RPS</label>
+
+        <input class="radio" type="radio" id="rpsls" value="rpsls" name="game" onclick="rpsls()">
+        <label for="rpsls">RPSLS</label>
+
+        <h2>Check to play an Opponent:</h2>
+        <input class="radio" type="checkbox" id="comp" value="comp" name="comp" onclick="comp()">
+        <label for="comp">Opponent</label>
+
+
+        <div name="shots">
+            <h2>Select Throw:</h2>
+            <input class="radio" type="radio" id="rock" value="rock" name="throw">
+            <label for="rock">Rock</label>
+
+            <input class="radio" type="radio" id="paper" value="paper" name="throw">
+            <label for="paper">Paper</label>
+
+            <input class="radio" type="radio" id="scissors" value="scissors" name="throw">
+            <label for="scissors">Scissors</label>
+
+            <div name="rpsls">
+                <input class="radio" type="radio" id="lizard" value="lizard" name="throw">
+                <label for="lizard" >Lizard</label>
+
+                <input class="radio" type="radio" id="spock" value="spock" name="throw">
+                <label for="spock" >Spock</label>
+            </div>
+
+        </div>
+
+
+        <br><br>
+
+
+        <button type="button" onclick="play()">Play</button>
+
+        <button type="button" onclick="rules()">Rules</button>
+
+        <button type="button" onclick="reset()">Reset</button>
+
+        <br><br>
+
+        <div>
+            <h4 id="results">Results</h4>
+            <table class="results">
+                <tbody>
+                    <tr>
+                        <td>
+                            <h3 id="shotImgLab">You:</h3>
+                            <img alt="" src="img/rock.jpg" id="shotImg" class="shot">
+                        </td>
+                        <td>
+                            <h3 id="oppShotImgLab">Opponent:</h3>
+                            <img alt="" src="img/rock.jpg" id="oppShotImg" class="shot">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
     </body>
 </html>

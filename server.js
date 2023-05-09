@@ -60,10 +60,12 @@ if (args.debug) {
 // Create an app server
 const app = express()
 // Set a port for the server to listen on
-const port = args.port || args.p || process.env.PORT || 8080
+const port = args.port || args.p || process.env.PORT || 5000
 // Load app middleware here to serve routes, accept data requests, etc.
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+
+import { rps, rpsls } from "./lib/rpsls.js"
 
 app.get('/app/', (req, res) => {     
     res.status(200).send("200 OK");
@@ -94,12 +96,10 @@ app.post('/app/rpsls/play/', (req, res) => {
 })
 
 app.get('/app/rps/play/:shot/', (req, res) => {     
-   
     res.status(200).send(rps(req.params.shot));
 })
 
 app.get('/app/rpsls/play/:shot/', (req, res) => {   
-    
     res.status(200).send(rpsls(req.params.shot));
 })
 // Create and update access log
